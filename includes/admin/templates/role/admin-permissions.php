@@ -20,11 +20,11 @@
 				'value'		    => isset( $role['_um_can_not_see_adminbar'] ) ? $role['_um_can_not_see_adminbar'] : 1,
 			),
 			array(
-				'id'		    => '_um_can_edit_everyone',
+				'id'		    => '_um_can_edit_other_roles',
 				'type'		    => 'checkbox',
 				'label'    		=> __( 'Can edit other member accounts?', 'ultimate-member' ),
 				'tooltip' 	=> __( 'Allow this role to edit accounts of other members', 'ultimate-member' ),
-				'value'		    => ! empty( $role['_um_can_edit_everyone'] ) ? $role['_um_can_edit_everyone'] : 0,
+				'value'		    => ! empty( $role['_um_can_edit_other_roles'] ) ? $role['_um_can_edit_other_roles'] : 0,
 			),
 			array(
 				'id'		=> '_um_can_edit_roles',
@@ -34,7 +34,7 @@
 				'options'	=> UM()->roles()->get_roles(),
 				'multi'		=> true,
 				'value'		=> ! empty( $role['_um_can_edit_roles'] ) ? $role['_um_can_edit_roles'] : array(),
-				'conditional'	=> array( '_um_can_edit_everyone', '=', '1' )
+				'conditional'	=> array( '_um_can_edit_other_roles', '=', '1' )
 			),
 			array(
 				'id'		    => '_um_can_delete_everyone',

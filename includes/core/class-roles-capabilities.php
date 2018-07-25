@@ -588,7 +588,9 @@ if ( ! class_exists( 'um\core\Roles_Capabilities' ) ) {
 						$return = 1;
 					elseif ( get_current_user_id() == $user_id && ! um_user( 'can_edit_profile' ) )
 						$return = 0;
-					elseif ( um_user( 'can_edit_everyone' ) )
+					elseif ( get_current_user_id() != $user_id && um_user( 'can_edit_everyone' ) )
+						$return = 1;
+					elseif ( get_current_user_id() != $user_id && count( array_intersect( $current_user_roles, um_user( 'can_edit_roles' ) ) ) > 0 )
 						$return = 1;
 					elseif ( ! um_user( 'can_edit_everyone' ) )
 						$return = 0;

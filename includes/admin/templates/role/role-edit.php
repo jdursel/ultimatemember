@@ -109,6 +109,12 @@ if ( ! empty( $_POST['role'] ) ) {
 			}
 		}
 
+		if ( $data['_um_can_edit_roles'] != '') {
+			$data['_um_can_edit_everyone'] = 0;
+        } else {
+			$data['_um_can_edit_everyone'] = 1;
+        }
+
 		$role_meta = $data;
 		unset( $role_meta['id'] );
 
